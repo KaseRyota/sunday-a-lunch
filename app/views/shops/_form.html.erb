@@ -1,0 +1,51 @@
+<%= form_for(@shop) do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="container-fluid">
+  <%= form_tag("/shops", method: :post) do %>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="InputMentor">メンター名</label>
+        <div class="col-md-10">
+            <select name="mentor" id="InputMentor" class="form-control">
+                <option>ベンチャー</option>
+                <option>ぶっちー</option>
+                <option>サカナクション</option>
+                <option>みこ</option>
+                <option>せぇ</option>
+                <option>ちょむ</option>
+                <option>かすぴー</option>
+                <option>バナナ</option>
+                <option>スペック</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="InputName">店名</label>
+        <div class="col-md-10">
+            <input type="text" name="name" value="<%= @shop.name %>" id="InputName" class="form-control" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="InputComment">グルメコメント</label>
+        <div class="col-md-10">
+          <textarea name="comment" id="InputComment" class="form-control" required><%= @shop.comment %></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="追加" class="btn btn-success">
+        </div>
+    </div>
+  <% end %>
+</div>

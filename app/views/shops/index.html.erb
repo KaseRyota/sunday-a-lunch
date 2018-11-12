@@ -1,0 +1,50 @@
+<div class="jumbotron">
+  <h1 class="wf-sawarabigothic text-center">日Aランチ</h1>
+</div>
+
+<div class="text-center">
+  <p>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1a06CRCYRQt9hM8hqurrxHvQHw6U37r5x" width="900" height="480"></iframe>
+  </p>
+</div>
+
+<div class="container-fluid">
+  <div class="offset-md-1 col-md-10">
+    <div class="card">
+      <div class="card-header">
+        <h3>行った店リスト</h3>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width:10%">メンター名</th>
+              <th style="width:10%">店名</th>
+              <th>グルメコメント</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @shops.each do |shop| %>
+              <tr>
+                <td><%= shop.mentor %></td>
+                <td><%= shop.name %></td>
+                <td><%= shop.comment %></td>
+                <td><%= link_to '編集', edit_shop_path(shop), class: "btn btn-info" %></td>
+                <td><%= link_to '削除', shop, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="text-center">
+  <p><%= link_to '店の追加', new_shop_path, class: "btn btn-success" %></p>
+</div>
+
