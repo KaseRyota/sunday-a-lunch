@@ -76,6 +76,21 @@ class ShopsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def junapoint
+    @shops = Shop.all
+  end
+  
+  def editjunapoint
+    @shop = Shop.find(params[:id])
+  end
+  
+  def updatejunapoint
+    @shop = Shop.find(params[:id])
+    @shop.junapoint = params[:junapoint]
+    @shop.save
+    redirect_to "/shops/junapoint"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

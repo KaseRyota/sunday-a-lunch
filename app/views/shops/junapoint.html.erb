@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <h1 class="wf-sawarabigothic text-center">ゅなさん専用ページ</h1>
+</div>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3>行った店リスト</h3>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width:5%">NO.</th>
+              <th style="width:10%">投稿者</th>
+              <th style="width:10%">写真</th>
+              <th style="width:10%">店名</th>
+              <th>グルメコメント</th>
+              <th style="width:5%"></th>
+              <th style="width:5%"></th>
+              <th style="width:12%">ゅなポイント</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @shops.each_with_index do |shop, i| %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td><%= shop.contributer %></td>
+                <td><img alt="" src="<%= "/shop_images/#{shop.photo}" %>" style="width:100%"></td>
+                <td><%= shop.name %></td>
+                <td><%= shop.comment %></td>
+                <td></td>
+                <td></td>
+                <% if shop.junapoint != nil %>
+                  <td><%= shop.junapoint %>
+                <% else %>
+                  <td>判定中
+                <% end %>
+                <%= link_to '編集', "/shops/#{shop.id}/junapoint", class: "btn btn-success" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

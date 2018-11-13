@@ -1,0 +1,16 @@
+<div class="jumbotron">
+    <h1 class="wf-sawarabigothic text-center">ゅなさん専用ページ</h1>
+</div>
+<%= form_tag("/shops/#{@shop.id}/junapoint", method: :post) do %>
+    <div class="form-group">
+        <label class="control-label" for="InputJunapoint">ゅなポイントは</label>
+        <div class="col-md-3">
+            <input type="text" name="junapoint" value="<%= @shop.junapoint %>" id="InputJunapoint" class="form-control" required>
+        </div>
+        <label>点</label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="完了" class="btn btn-info col-md-1">
+        <%= link_to '戻る', "/shops/junapoint", class: "btn btn-danger col-md-1" %>
+    </div>
+<% end %>

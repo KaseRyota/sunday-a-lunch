@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :shops
   root :to => 'shops#index'
   get "/shops/:id/photo" => "shops#photo"
   post "/shops/:id/photo" => "shops#addphoto"
+  get "/shops/junapoint" => "shops#junapoint"
+  get "/shops/:id/junapoint" => "shops#editjunapoint"
+  post "shops/:id/junapoint" => "shops#updatejunapoint"
+  resources :shops
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
