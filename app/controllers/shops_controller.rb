@@ -33,21 +33,22 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to '/shops'
     else
-      render(shops/create)
+      render('shops/new')
     end
   end
 
   # PATCH/PUT /shops/1
   # PATCH/PUT /shops/1.json
   def update
-    respond_to do |format|
-      if @shop.update(shop_params)
-        format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shop }
-      else
-        format.html { render :edit }
-        format.json { render json: @shop.errors, status: :unprocessable_entity }
-      end
+    @shop = Shop.find(params[:id])
+    @shop.mentor = params[:mentor]
+    @shop.name = params[:name]
+    @shop.comment = params[:comment]
+    
+    if @shop.save
+      redirect_to '/shops'
+    else
+      render('shops/edit')
     end
   end
 
