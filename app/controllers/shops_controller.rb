@@ -48,6 +48,7 @@ class ShopsController < ApplicationController
     @shop.photo = "#{@shop.id}.jpg"
     photo = params[:photo]
     File.binwrite("public/shop_images/#{@shop.photo}", photo.read)
+    @shop.save
     redirect_to "/shops"
   end
 
