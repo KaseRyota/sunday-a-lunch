@@ -20,22 +20,28 @@
     <div class="offset-md-1 col-md-10">
         <%= form_tag("/shops/#{@shop.id}", method: :patch) do %>
             <div class="form-group">
-                <label class="control-label" for="InputMentor">メンター名</label>
+                <label class="control-label" for="InputContributer">投稿者</label>
                 <div class="col-md-3">
-                    <select name="mentor" id="InputMentor" class="form-control">
-                        <option></option>
-                        <option>ベンチャー</option>
-                        <option>ぶっちー</option>
-                        <option>サカナクション</option>
-                        <option>みこ</option>
-                        <option>せぇ</option>
-                        <option>ちょむ</option>
-                        <option>かすぴー</option>
-                        <option>バナナ</option>
-                        <option>スペック</option>
-                    </select>
+                    <input type="text" name="contributer" id="InputContributer" class="form-control" required>
                 </div>
             </div>
+            <!--<div class="form-group">-->
+            <!--    <label class="control-label" for="InputMentor">メンター名</label>-->
+            <!--    <div class="col-md-3">-->
+            <!--        <select name="mentor" id="InputMentor" class="form-control">-->
+            <!--            <option></option>-->
+            <!--            <option>ベンチャー</option>-->
+            <!--            <option>ぶっちー</option>-->
+            <!--            <option>サカナクション</option>-->
+            <!--            <option>みこ</option>-->
+            <!--            <option>せぇ</option>-->
+            <!--            <option>ちょむ</option>-->
+            <!--            <option>かすぴー</option>-->
+            <!--            <option>バナナ</option>-->
+            <!--            <option>スペック</option>-->
+            <!--        </select>-->
+            <!--    </div>-->
+            <!--</div>-->
             <div class="form-group">
                 <label class="control-label" for="InputName">店名</label>
                 <input type="text" name="name" value="<%= @shop.name %>" id="InputName" class="form-control" required>
@@ -45,7 +51,7 @@
                 <textarea name="comment" id="InputComment" class="form-control" required><%= @shop.comment %></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="完了" class="btn btn-info col-md-1">
+                <input type="submit" value="次へ" class="btn btn-info col-md-1">
                 <%= link_to '戻る', shops_path, class: "btn btn-danger col-md-1" %>
             </div>
         <% end %>

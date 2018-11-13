@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :shops
   root :to => 'shops#index'
+  get "/shops/:id/photo" => "shops#photo"
+  post "/shops/:id/photo" => "shops#addphoto"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

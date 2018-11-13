@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(version: 20181112051714) do
 
   create_table "shops", force: :cascade do |t|
-    t.string   "mentor"
+    t.string   "contributer"
+    t.string   "photo"
     t.string   "name"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "junapoint"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

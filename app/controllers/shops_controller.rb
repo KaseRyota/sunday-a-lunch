@@ -25,28 +25,42 @@ class ShopsController < ApplicationController
   # POST /shops.json
   def create
     @shop = Shop.new(
-      mentor: params[:mentor],
+      contributer: params[:contributer],
+      photo: "default.jpg",
       name: params[:name],
       comment: params[:comment]
     )
 
     if @shop.save
-      redirect_to '/shops'
+      redirect_to "/shops/#{@shop.id}/photo"
     else
       render('shops/new')
     end
+  end
+  
+  # add photo spage
+  def photo
+    @shop = Shop.find(params[:id])
+  end
+  
+  def addphoto
+    @shop = Shop.find(params[:id])
+    @shop.photo = "#{@shop.id}.jpg"
+    photo = params[:photo]
+    File.binwrite("public/shop_images/#{@shop.photo}", photo.read)
+    redirect_to "/shops"
   end
 
   # PATCH/PUT /shops/1
   # PATCH/PUT /shops/1.json
   def update
     @shop = Shop.find(params[:id])
-    @shop.mentor = params[:mentor]
+    @shop.contributer = params[:contributer]
     @shop.name = params[:name]
     @shop.comment = params[:comment]
     
     if @shop.save
-      redirect_to '/shops'
+      redirect_to "/shops/#{@shop.id}/photo"
     else
       render('shops/edit')
     end
