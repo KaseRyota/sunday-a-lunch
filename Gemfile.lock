@@ -179,7 +179,7 @@ DEPENDENCIES
   jquery-rails
   pg (~> 0.19.0)
   pry
-  puma (= 2.11.1)
+  puma
   rails (= 4.2.8)
   rails_12factor
   sass-rails (~> 5.0.7)
