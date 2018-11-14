@@ -24,17 +24,13 @@ class ShopsController < ApplicationController
   # POST /shops
   # POST /shops.json
   def create
-    @shop = Shop.new(
-      contributer: params[:contributer],
-      photo: "default.jpg",
-      name: params[:name],
-      comment: params[:comment]
-    )
-
+    @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to "/shops/#{@shop.id}/photo"
+      # flash[:success] = 'ユーザー情報を編集しました。'
+      redirect_to shops_url
     else
-      render('shops/new')
+      # flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
+      render :new
     end
   end
   
@@ -56,14 +52,12 @@ class ShopsController < ApplicationController
   # PATCH/PUT /shops/1.json
   def update
     @shop = Shop.find(params[:id])
-    @shop.contributer = params[:contributer]
-    @shop.name = params[:name]
-    @shop.comment = params[:comment]
-    
-    if @shop.save
-      redirect_to "/shops/#{@shop.id}/photo"
+    if @shop.update(shop_params)
+      # flash[:success] = 'ユーザー情報を編集しました。'
+      redirect_to shops_url
     else
-      render('shops/edit')
+      # flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
+      render :edit
     end
   end
 
@@ -100,6 +94,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:mentor, :name, :comment)
+      params.require(:shop).permit(:contributer, :photo, :name, :comment)
     end
 end

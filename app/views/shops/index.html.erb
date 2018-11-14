@@ -28,13 +28,16 @@
               <th style="width:12%">ゅなポイント</th>
             </tr>
           </thead>
-        
           <tbody>
             <% @shops.each_with_index do |shop, i| %>
               <tr>
                 <td><%= i+1 %></td>
                 <td><%= shop.contributer %></td>
-                <td><img alt="" src="<%= "/shop_images/#{shop.photo}" %>" style="width:100%"></td>
+                <% if shop.photo? %>
+                  <td><%= image_tag shop.photo.url, :style => "width:100%" %></td>
+                <% else %>
+                  <td><%= image_tag "/images/default.jpg", :style => "width:100%" %></td>
+                <% end %>
                 <td><%= shop.name %></td>
                 <td><%= shop.comment %></td>
                 <td><%= link_to '編集', edit_shop_path(shop), class: "btn btn-info" %></td>
