@@ -34,7 +34,7 @@
                 <td><%= i+1 %></td>
                 <td><%= shop.contributer %></td>
                 <% if shop.photo? %>
-                  <td><%= image_tag shop.photo.url, :style => "width:100%" %></td>
+                  <td><%= image_tag shop.photo_url, :style => "width:100%" %></td>
                 <% else %>
                   <td><%= image_tag "/images/default.jpg", :style => "width:100%" %></td>
                 <% end %>

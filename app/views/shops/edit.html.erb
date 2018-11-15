@@ -23,7 +23,7 @@
                 </div>
             </div>
             <% if @shop.photo? %>
-                <%= image_tag @shop.photo.url, :class => "col-md-3" %>
+                <%= image_tag @shop.photo_url, :class => "col-md-3" %>
             <% else %>
                 <%= image_tag "/images/default.jpg", :class => "col-md-3" %>
             <% end %>
