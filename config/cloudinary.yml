@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hbcham6zd
+  api_key: '382757216543988'
+  api_secret: giICeB2bo2Ygy7AIMghJ0GDZpbI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hbcham6zd
+  api_key: '382757216543988'
+  api_secret: giICeB2bo2Ygy7AIMghJ0GDZpbI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hbcham6zd
+  api_key: '382757216543988'
+  api_secret: giICeB2bo2Ygy7AIMghJ0GDZpbI
+  enhance_image_tag: true
+  static_image_support: false
