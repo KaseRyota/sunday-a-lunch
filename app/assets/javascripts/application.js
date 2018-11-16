@@ -29,31 +29,23 @@ $(function(){
 	});
 });
 
-$(function(){
-    $('#shopSubmitButton').click(function(){
-        $.ajax({
-            url:'./shops',
-            type:'POST',
-            data:{
-                'contributer':$('#contributerAdd').val(),
-                'photo':$('#photoAdd').val(),
-                'name':$('#nameAdd').val(),
-                'comment':$('#commentAdd').val()
-            }
-        })
-        // Ajaxリクエストが成功した時発動
-        .done( (data) => {
-            $('.result').html(data);
-            console.log(data);
-        })
-        // Ajaxリクエストが失敗した時発動
-        .fail( (data) => {
-            $('.result').html(data);
-            console.log(data);
-        })
-        // Ajaxリクエストが成功・失敗どちらでも発動
-        .always( (data) => {
-
-        });
-    });
-});
+// $(function(){
+//     $('#shopSubmitButton').click(function(){
+//         $.ajax({
+//             url:'./shops',
+//             type:'POST',
+//             data:{
+//                 'contributer':$('#contributerAdd').val(),
+//                 'photo':$('#photoAdd').val(),
+//                 'name':$('#nameAdd').val(),
+//                 'comment':$('#commentAdd').val()
+//                 },
+//             success: function(data) {
+//                 alert("success");
+//             },
+//             error: function(data) {
+//                 alert("errror");
+//             }
+//         })
+//     });
+// });
