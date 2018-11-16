@@ -54,12 +54,56 @@
         </table>
       </div>
     </div>
+    <div class="text-center">
+      <p><button class="shopAddButton btn btn-success">店の追加</button></p>
+      <div id="shopAddForm">
+        <div class="offset-xl-2 col-xl-8">
+          <%= form_for(@shop) do |f| %>
+              <% if @shop.errors.any? %>
+                  <div id="error_explanation">
+                      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+                      <ul>
+                          <% @shop.errors.full_messages.each do |message| %>
+                              <li><%= message %></li>
+                          <% end %>
+                      </ul>
+                  </div>
+              <% end %>
+              <div class="form-group">
+                  <div class="field col-6 col-xl-3">
+                      <%= f.label :contributer, "投稿者" %>
+                      <%= f.text_field :contributer, class: "form-control", required: true %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="field">
+                      <%= f.label :photo, "写真（なしでもOK）", class: "control-label" %>
+                      <%= f.file_field :photo, class: "form-control" %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="field">
+                      <%= f.label :name, "名前" %>
+                      <%= f.text_field :name, class: "form-control", required: true %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="field">
+                      <%= f.label :comment, "グルメコメント" %>
+                      <%= f.text_area :comment, class: "form-control", required: true %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="actions">
+                      <%= f.submit '追加', class: 'btn btn-info col-4 col-xl-1' %>
+                      <button class="shopAddButton btn btn-danger col-4 col-xl-1">戻る</button>
+                  </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<br>
-
-<div class="text-center">
-  <p><%= link_to '店の追加', new_shop_path, class: "btn btn-success" %></p>
-</div>
 

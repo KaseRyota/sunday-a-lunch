@@ -14,3 +14,46 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function(){
+	$('.shopAddButton').click(function(){
+		$('#shopAddForm').slideToggle();
+        var position = $(this).offset().top;
+        console.log(position)
+        $("html,body").animate({
+            scrollTop : position
+        }, {
+            queue : false
+        });
+	});
+});
+
+$(function(){
+    $('#shopSubmitButton').click(function(){
+        $.ajax({
+            url:'./shops',
+            type:'POST',
+            data:{
+                'contributer':$('#contributerAdd').val(),
+                'photo':$('#photoAdd').val(),
+                'name':$('#nameAdd').val(),
+                'comment':$('#commentAdd').val()
+            }
+        })
+        // Ajaxリクエストが成功した時発動
+        .done( (data) => {
+            $('.result').html(data);
+            console.log(data);
+        })
+        // Ajaxリクエストが失敗した時発動
+        .fail( (data) => {
+            $('.result').html(data);
+            console.log(data);
+        })
+        // Ajaxリクエストが成功・失敗どちらでも発動
+        .always( (data) => {
+
+        });
+    });
+});
